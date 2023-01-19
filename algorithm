@@ -1,47 +1,29 @@
-ALGORITHM SENTENCE
-
-VAR
-
-   nbv,nbw,nbc:= INTEGER ;
-
-   sentc:= STRING[] ;
-
 BEGIN
-
-  nbc:= 0 ;
-
-  nbw:= 1 ;
-
-  nbv:= 0;
-
-  write("type the sentence")
-
-  read(sentc)
-
-REPEAT
-
-   
-
-   IF (sentc[nbc]=" ") THEN
-
-       nbw:=nbw+1 ;
-
-   END_IF
-
-  IF (sentc[nbc] in ["a","e","u","i","o","y"]) THEN
-
-   nbv:= nbv +1 ;
-
-   END_IF
-
-   nbc := nbc+1 ;
-
-UNTIL (sentc[nbc]=".")
-
-write( "le nombre de caractere est ",nbc+1 )
-
-write (" le nombre de mot est ",nbw)
-
-write (" le nombre de voyelle est ",nbv)
-
+    var endWithPeriod = false
+    var sentenceLength = 0
+    var wordCount = 0
+    var vowelCount = 0
+    BEGIN
+        for each character in the sentence
+            sentenceLength = sentenceLength + 1
+            if character is a space then
+                wordCount = wordCount + 1
+            end if
+            if character is a vowel then
+                vowelCount = vowelCount + 1
+            end if
+            if character is a period then
+                endWithPeriod = true
+            end if
+        end for
+    END
+    if endWithPeriod = true then
+        print "ends with period"
+    end if
+    if endWithPeriod = false then
+        print "does not end with period"
+    end if
+    print "Sentence Length: " + sentenceLength
+    print "Word Count: " + wordCount
+    print "Vowel Count: " + vowelCount
 END
